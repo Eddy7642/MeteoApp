@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MeteoApp</title>
+  <link rel="stylesheet" href="index.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container py-4">
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h1 class="app-title mb-4"><i class="fas fa-cloud-sun me-2"></i>MeteoApp</h1>
+        <p class="text-muted">Scopri le previsioni meteo per qualsiasi città del mondo</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-8">
+        <div class="input-group">
+          <input type="text" id="cityInput" class="form-control search-box" placeholder="Inserisci il nome di una città..." />
+          <button class="btn btn-primary search-btn" type="button" id="searchBtn">
+            <i class="fas fa-search me-2"></i>Cerca
+          </button>
+        </div>
+        <div class="text-center mt-3">
+          <div class="spinner-border text-primary loading-spinner" id="loadingSpinner" role="status">
+            <span class="visually-hidden">Caricamento...</span>
+          </div>
+          <div class="error-message" id="errorMessage">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            <span id="errorText">Città non trovata. Riprova con un altro nome.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="weatherContainer" class="row justify-content-center" style="display: none;">
+      <div class="col-md-8 mb-4">
+        <div class="weather-card p-4">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+              <h2 id="cityName" class="mb-1">Roma</h2>
+              <p id="currentDate" class="text-muted mb-3">Lunedì, 6 Maggio</p>
+              <div class="temp-display mb-2"><span id="currentTemp">22</span>°C</div>
+              <p id="weatherDescription" class="fs-5 mb-1">Soleggiato</p>
+              <p id="feelsLike" class="text-muted">Percepiti: 24°C</p>
+            </div>
+            <div class="col-md-6 text-center">
+              <i id="weatherIcon" class="fas fa-sun weather-icon mb-3"></i>
+              <div class="row additional-info">
+                <div class="col-4">
+                  <i class="fas fa-tint text-primary"></i>
+                  <div><span id="humidity">45</span>%</div>
+                  <small>Umidità</small>
+                </div>
+                <div class="col-4">
+                  <i class="fas fa-wind text-primary"></i>
+                  <div><span id="windSpeed">8</span> km/h</div>
+                  <small>Vento</small>
+                </div>
+                <div class="col-4">
+                  <i class="fas fa-compress-alt text-primary"></i>
+                  <div><span id="pressure">1012</span> hPa</div>
+                  <small>Pressione</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <h4 class="mb-3 text-center text-md-start">Previsioni per i prossimi giorni</h4>
+        <div class="row" id="forecastContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
